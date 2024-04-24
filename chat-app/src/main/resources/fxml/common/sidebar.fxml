@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox alignment="TOP_CENTER" spacing="8" style="-fx-background-color: #131619;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.sio.chat.app.controllers.SidebarController">
+   <stylesheets>
+      <URL value="@../../static/css/index.css" />
+   </stylesheets>
+   <padding>
+      <Insets top="15.0" />
+      <Insets bottom="15.0" />
+   </padding>
+   <ImageView fitHeight="35.0" fitWidth="35.0">
+      <Image url="@../../static/appIcon.png" />
+      <VBox.margin>
+         <Insets top="10.0" />
+      </VBox.margin>
+   </ImageView>
+   <Separator opacity="0.2" prefWidth="200.0">
+      <VBox.margin>
+         <Insets top="15.0" />
+      </VBox.margin>
+   </Separator>
+   <Button fx:id="switchToHomeBtn" contentDisplay="TOP" mnemonicParsing="false" onAction="#switchToHome" style="-fx-background-color: #131619; -fx-padding: 0; -fx-end-margin: 2;" text="Accueil" textFill="WHITE">
+      <font>
+         <Font size="12" />
+      </font>
+      <graphic>
+         <ImageView fx:id="imageHome" fitHeight="30.0" fitWidth="30.0">
+            <Image url="@../../static/logo_accueil.png" />
+         </ImageView>
+      </graphic>
+      <VBox.margin>
+         <Insets top="10.0" />
+      </VBox.margin>
+   </Button>
+   <Button fx:id="switchToDiscussionBtn" contentDisplay="TOP" mnemonicParsing="false" onAction="#switchToDiscussion" style="-fx-background-color: #131619; -fx-padding: 0;" text="Messages" textFill="WHITE" textOverrun="CLIP">
+      <font>
+         <Font size="12.0" />
+      </font>
+      <graphic>
+         <ImageView fx:id="imageMessages" fitHeight="30.0" fitWidth="30.0">
+            <Image url="@../../static/logo_messages.png" />
+         </ImageView>
+      </graphic>
+   </Button>
+   <Pane VBox.vgrow="ALWAYS" />
+   <Button fx:id="switchToSettingsBtn" contentDisplay="TOP" mnemonicParsing="false" onAction="#switchToSettings" style="-fx-background-color: #131619; -fx-padding: 0;" text="Compte" textFill="WHITE" textOverrun="CLIP">
+      <font>
+         <Font size="12.0" />
+      </font>
+      <graphic>
+         <ImageView fx:id="imageParameters" fitHeight="30.0" fitWidth="30.0">
+            <Image url="@../../static/logo_setting.png" />
+         </ImageView>
+      </graphic>
+      <VBox.margin>
+         <Insets />
+      </VBox.margin>
+   </Button>
+</VBox>

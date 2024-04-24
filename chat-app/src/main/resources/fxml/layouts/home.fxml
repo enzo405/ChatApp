@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.sio.chat.app.controllers.HomeController">
+    <fx:include source="../common/titlebar.fxml" VBox.vgrow="ALWAYS" />
+    <GridPane style="-fx-background-color: #131619, #131619;" VBox.vgrow="ALWAYS">
+        <stylesheets>
+            <URL value="@../../static/css/scrollpane.css" />
+        </stylesheets>
+        <columnConstraints>
+            <ColumnConstraints percentWidth="4.2" />
+            <ColumnConstraints percentWidth="0.3" />
+            <ColumnConstraints percentWidth="95.5" />
+        </columnConstraints>
+        <rowConstraints>
+            <RowConstraints minHeight="10.0" vgrow="ALWAYS" />
+        </rowConstraints>
+        <fx:include fx:id="sidebarTemplate" source="../common/sidebar.fxml" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="0" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
+        <VBox prefHeight="200.0" prefWidth="5.0" style="-fx-background-color: black;" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+        <ScrollPane fitToHeight="true" fitToWidth="true" style="-fx-background: #131619; -fx-background-color: #131619" GridPane.columnIndex="2" GridPane.rowIndex="0">
+            <VBox>
+                <GridPane alignment="CENTER" style="-fx-background-image: url(static/background-add-friend.png); -fx-background-position: center; -fx-background-size: 100%; -fx-background-radius: 5; -fx-border-radius: 5;">
+                    <columnConstraints>
+                        <ColumnConstraints minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints minHeight="400.0" />
+                    </rowConstraints>
+                    <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="0" GridPane.hgrow="ALWAYS" GridPane.vgrow="ALWAYS" />
+                    <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.vgrow="ALWAYS">
+                        <Label text="Trouvez vos amis sur Chat App" textFill="WHITE">
+                            <font>
+                                <Font size="30.0" />
+                            </font>
+                        </Label>
+                        <Label text="N’allez jamais sur notre application rivale “Jawad Chat”" textFill="WHITE">
+                            <font>
+                                <Font size="20.0" />
+                            </font>
+                        </Label>
+                        <HBox alignment="CENTER">
+                            <padding>
+                                <Insets top="10.0" />
+                            </padding>
+                            <HBox alignment="CENTER" minHeight="35.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 5;" HBox.hgrow="ALWAYS">
+                                <TextField fx:id="textFieldAddFriends" promptText="Ajoutez vos amis" style="-fx-background-color: #FFFFFF; -fx-text-fill: #000000;" HBox.hgrow="ALWAYS" />
+                                <Button mnemonicParsing="false" onAction="#addFriend" style="-fx-background-color: #FFFFFF;">
+                                    <graphic>
+                                        <ImageView>
+                                            <Image url="@../../static/add-friend.png" />
+                                        </ImageView>
+                                    </graphic>
+                                </Button>
+                            </HBox>
+                        </HBox>
+                        <Label fx:id="resultLabel" textFill="RED" visible="false" />
+                    </VBox>
+                    <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.hgrow="ALWAYS" GridPane.vgrow="ALWAYS" />
+                </GridPane>
+                <VBox prefHeight="2.0" style="-fx-background-color: #000000;" />
+                <BorderPane VBox.vgrow="ALWAYS">
+                    <center>
+                        <VBox BorderPane.alignment="CENTER">
+                            <VBox>
+                                <HBox alignment="CENTER" spacing="15.0" VBox.vgrow="ALWAYS">
+                                    <Separator prefWidth="200.0" HBox.hgrow="ALWAYS" />
+                                    <Button fx:id="goToFriends" contentDisplay="CENTER" mnemonicParsing="false" style="-fx-background-color: #454545; -fx-background-radius: 100;">
+                                        <graphic>
+                                            <ImageView fitHeight="22.0" fitWidth="22.0" preserveRatio="true">
+                                                <Image url="@../../static/friend-logo.png" />
+                                            </ImageView>
+                                        </graphic>
+                                        <padding>
+                                            <Insets bottom="12.0" left="12.0" right="12.0" top="12.0" />
+                                        </padding>
+                                    </Button>
+                                    <Button fx:id="goToUnreadMessages" mnemonicParsing="false" style="-fx-background-color: #454545; -fx-background-radius: 100;">
+                                        <graphic>
+                                            <ImageView fitHeight="22.0" fitWidth="22.0" preserveRatio="true">
+                                                <Image url="@../../static/msg-non-lu-logo.png" />
+                                            </ImageView>
+                                        </graphic>
+                                        <padding>
+                                            <Insets bottom="12.0" left="12.0" right="12.0" top="12.0" />
+                                        </padding>
+                                    </Button>
+                                    <Button fx:id="goToFriendRequests" contentDisplay="CENTER" mnemonicParsing="false" style="-fx-background-color: #454545; -fx-background-radius: 100;">
+                                        <graphic>
+                                            <ImageView fitHeight="22.0" fitWidth="22.0" preserveRatio="true" style="-fx-text-fill: #FFFFFF;">
+                                                <Image url="@../../static/add-friend-white.png" />
+                                            </ImageView>
+                                        </graphic>
+                                        <HBox.margin>
+                                            <Insets />
+                                        </HBox.margin>
+                                        <padding>
+                                            <Insets bottom="12.0" left="12.0" right="12.0" top="12.0" />
+                                        </padding>
+                                    </Button>
+                                    <Separator prefWidth="200.0" HBox.hgrow="ALWAYS" />
+                                    <VBox.margin>
+                                        <Insets bottom="10.0" top="10.0" />
+                                    </VBox.margin>
+                                </HBox>
+                            </VBox>
+                            <VBox>
+                                <HBox alignment="CENTER_LEFT" spacing="10.0" VBox.vgrow="ALWAYS">
+                                    <Label text="Vos amis :" textFill="WHITE">
+                                        <font>
+                                            <Font size="20.0" />
+                                        </font>
+                                    </Label>
+                                    <ImageView fitWidth="31.0" preserveRatio="true">
+                                        <Image url="@../../static/friend-logo.png" />
+                                    </ImageView>
+                                    <VBox.margin>
+                                        <Insets bottom="20.0" top="20.0" />
+                                    </VBox.margin>
+                                </HBox>
+                            </VBox>
+                            <GridPane fx:id="gridPaneFriends" hgap="15.0" vgap="15.0" VBox.vgrow="ALWAYS">
+                            </GridPane>
+                            <HBox spacing="15.0">
+                                <VBox fx:id="vBoxUnreadMessages" HBox.hgrow="ALWAYS">
+                                    <HBox spacing="10.0">
+<!--                                        <Label text="Messages non lus :" textFill="WHITE">-->
+<!--                                            <font>-->
+<!--                                                <Font size="20.0" />-->
+<!--                                            </font>-->
+<!--                                        </Label>-->
+<!--                                        <ImageView fitWidth="31.0" preserveRatio="true">-->
+<!--                                            <Image url="@../../static/msg-non-lu-logo.png" />-->
+<!--                                        </ImageView>-->
+                                    </HBox>
+                                </VBox>
+                                <VBox prefWidth="3.0" style="-fx-background-color: #2F2F2F; -fx-background-radius: 10;" />
+                                <VBox fx:id="vBoxFriendRequests" spacing="10.0" HBox.hgrow="ALWAYS">
+                                    <HBox fx:id="titleFriendRequest" spacing="10.0">
+                                        <Label text="Vos demandes d'amis :" textFill="WHITE">
+                                            <font>
+                                                <Font size="20.0" />
+                                            </font>
+                                        </Label>
+                                        <ImageView preserveRatio="true" style="-fx-text-fill: #FFFFFF;">
+                                            <Image url="@../../static/add-friend-white.png" />
+                                        </ImageView>
+                                    </HBox>
+                                </VBox>
+                                <VBox.margin>
+                                    <Insets bottom="20.0" top="20.0" />
+                                </VBox.margin>
+                            </HBox>
+                        </VBox>
+                    </center>
+                    <left>
+                        <Pane minWidth="30.0" BorderPane.alignment="CENTER" />
+                    </left>
+                    <right>
+                        <Pane minWidth="30.0" BorderPane.alignment="CENTER" />
+                    </right>
+                </BorderPane>
+            </VBox>
+        </ScrollPane>
+    </GridPane>
+</VBox>

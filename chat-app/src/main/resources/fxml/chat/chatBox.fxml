@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox fx:id="root" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+    <HBox alignment="CENTER" minHeight="70.0" prefHeight="70.0">
+        <HBox alignment="CENTER" spacing="10.0" HBox.hgrow="ALWAYS">
+            <opaqueInsets>
+                <Insets />
+            </opaqueInsets>
+            <padding>
+                <Insets left="20.0" />
+            </padding>
+            <ImageView fx:id="discussionIcon" fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                <Image url="@../../static/avatar.png" />
+            </ImageView>
+            <VBox alignment="CENTER_LEFT" HBox.hgrow="ALWAYS">
+                <Label fx:id="discussionName" text="Inconnu" textFill="WHITE">
+                    <font>
+                        <Font size="16.0" />
+                    </font>
+                </Label>
+                <Label fx:id="status" textFill="#c6c6c6">
+                   <font>
+                      <Font size="13.0" />
+                   </font>
+              </Label>
+            </VBox>
+        </HBox>
+        <Pane HBox.hgrow="ALWAYS" />
+        <HBox alignment="CENTER" spacing="15.0" HBox.hgrow="NEVER">
+            <HBox.margin>
+                <Insets left="10.0" right="25.0" />
+            </HBox.margin>
+            <HBox alignment="CENTER" maxHeight="20.0" style="-fx-background-color: #323338; -fx-background-radius: 15;">
+                <padding>
+                    <Insets bottom="4.0" left="10.0" right="4.0" top="4.0" />
+                </padding>
+                <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                    <Image url="@../../static/search.png" />
+                </ImageView>
+                <TextField fx:id="showSearchResult" promptText="Rechercher ..." style="-fx-background-color: transparent; -fx-text-fill: white;" />
+            </HBox>
+            <Button fx:id="addMemberTopButton" managed="false" mnemonicParsing="false" onAction="#handleDiscussionPopup" style="-fx-background-color: transparent; -fx-padding: 0;" visible="false">
+                <padding>
+                    <Insets bottom="4.0" left="10.0" right="4.0" top="4.0" />
+                </padding>
+                <graphic>
+                    <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                        <Image url="@../../static/AddMember.png" />
+                    </ImageView>
+                </graphic>
+            </Button>
+            <Button fx:id="pinTopButton" mnemonicParsing="false" onAction="#handleDiscussionPopup" style="-fx-background-color: transparent; -fx-padding: 0;">
+                <graphic>
+                    <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                        <Image url="@../../static/pinMessage.png" />
+                    </ImageView>
+                </graphic>
+            </Button>
+            <Button fx:id="memberListTopButton" managed="false" mnemonicParsing="false" onAction="#handleDiscussionPopup" style="-fx-background-color: transparent; -fx-padding: 0;" visible="false">
+                <padding>
+                    <Insets bottom="4.0" left="10.0" right="4.0" top="4.0" />
+                </padding>
+                <graphic>
+                    <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                        <Image url="@../../static/memberList.png" />
+                    </ImageView>
+                </graphic>
+            </Button>
+        </HBox>
+    </HBox>
+    <StackPane VBox.vgrow="ALWAYS">
+        <ScrollPane fx:id="scrollPaneMessageContainer" fitToWidth="true" hbarPolicy="NEVER" style="-fx-background: #181a20; -fx-opacity: 67%; -fx-background-color: #181a20;">
+            <VBox fx:id="messageContainer">
+                <padding>
+                    <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+                </padding>
+            </VBox>
+        </ScrollPane>
+        <GridPane fx:id="discussionPopupContainer" visible="false">
+            <columnConstraints>
+                <ColumnConstraints percentWidth="75.0" />
+                <ColumnConstraints percentWidth="25.0" />
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints fillHeight="false" minHeight="100" percentHeight="70.0" valignment="TOP" vgrow="ALWAYS" />
+                <RowConstraints fillHeight="false" percentHeight="30.0" valignment="TOP" vgrow="ALWAYS" />
+            </rowConstraints>
+            <BorderPane fx:id="discussionPopup" style="-fx-background-radius: 6; -fx-background-color: #323338;" GridPane.columnIndex="1">
+                <padding>
+                    <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+                </padding>
+                <GridPane.margin>
+                    <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+                </GridPane.margin>
+                <center>
+                    <ScrollPane fitToWidth="true" hbarPolicy="NEVER" minHeight="100.0" style="-fx-background: transparent; -fx-background-color: transparent;" BorderPane.alignment="CENTER">
+                        <VBox spacing="4.0">
+                            <Label fx:id="titleDiscussionPopup" textFill="#ffffffd4">
+                                <VBox.margin>
+                                    <Insets bottom="6.0" left="6.0" right="6.0" top="6.0" />
+                                </VBox.margin>
+                                <font>
+                                    <Font size="14.0" />
+                                </font>
+                            </Label>
+                            <HBox prefHeight="2.0" style="-fx-background-color: #363A3D; -fx-background-radius: 4;" />
+                            <VBox fx:id="vBoxContentDiscussionPopup" spacing="8.0" VBox.vgrow="ALWAYS">
+                                <padding>
+                                    <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+                                </padding>
+                            </VBox>
+                        </VBox>
+                    </ScrollPane>
+                </center>
+            </BorderPane>
+            <StackPane.margin>
+                <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+            </StackPane.margin>
+        </GridPane>
+    </StackPane>
+    <VBox style="-fx-background-color: #181a20; -fx-opacity: 67%;">
+        <VBox.margin>
+            <Insets />
+        </VBox.margin>
+        <padding>
+            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+        </padding>
+        <VBox style="-fx-background-radius: 10; -fx-background-color: #323338;">
+            <HBox fx:id="topMessageBarContainer" alignment="CENTER_LEFT" managed="false" visible="false" VBox.vgrow="ALWAYS">
+                <padding>
+                    <Insets bottom="2.0" left="10.0" right="10.0" top="2.0" />
+                </padding>
+                <Label fx:id="topMessageBarLabel" />
+                <Pane HBox.hgrow="ALWAYS" />
+                <Button graphicTextGap="0.0" mnemonicParsing="false" onAction="#closeTopMessageBarContainer" style="-fx-background-color: transparent; -fx-padding: 0;">
+                    <graphic>
+                        <ImageView fitHeight="14.0" fitWidth="14.0" pickOnBounds="true" preserveRatio="true">
+                            <Image url="@../../static/x.png" />
+                        </ImageView>
+                    </graphic>
+                </Button>
+            </HBox>
+            <HBox alignment="CENTER" spacing="4.0" style="-fx-background-color: #323338; -fx-background-radius: 10;">
+                <padding>
+                    <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+                </padding>
+                <Button graphicTextGap="0.0" mnemonicParsing="false" style="-fx-background-color: transparent; -fx-padding: 0;">
+                    <graphic>
+                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                            <Image url="@../../static/emojiChatBtn.png" />
+                        </ImageView>
+                    </graphic>
+                </Button>
+                <TextField fx:id="sendMessageBar" disable="true" editable="false" prefWidth="793.0" promptText="Vous n'avez pas accès à cette discussion" style="-fx-background-color: transparent; -fx-text-fill: white;" HBox.hgrow="ALWAYS">
+                    <font>
+                        <Font size="14.0" />
+                    </font>
+                </TextField>
+                <Button mnemonicParsing="false" style="-fx-background-color: transparent; -fx-padding: 0;">
+                    <graphic>
+                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                            <Image url="@../../static/sendFileChatBtn.png" />
+                        </ImageView>
+                    </graphic>
+                </Button>
+                <Button mnemonicParsing="false" onAction="#sendMessage" style="-fx-background-color: transparent; -fx-padding: 0;">
+                    <graphic>
+                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                            <Image url="@../../static/sendMsgChatBtn.png" />
+                        </ImageView>
+                    </graphic>
+                </Button>
+            </HBox>
+        </VBox>
+    </VBox>
+</VBox>

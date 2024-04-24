@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
+
+<VBox xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.sio.chat.app.controllers.LoginController">
+    <fx:include source="../common/titlebar.fxml" VBox.vgrow="ALWAYS" />
+    <GridPane VBox.vgrow="ALWAYS"  >
+    <stylesheets>
+        <URL value="@../../static/css/login.css" />
+    </stylesheets>
+    <columnConstraints>
+        <ColumnConstraints percentWidth="100" />
+    </columnConstraints>
+    <rowConstraints>
+        <RowConstraints minHeight="10.0" vgrow="ALWAYS" />
+    </rowConstraints>
+    <VBox alignment="CENTER" spacing="10.0" style="-fx-background-color: #131619;" GridPane.hgrow="ALWAYS" GridPane.vgrow="ALWAYS">
+        <Pane />
+        <VBox alignment="CENTER">
+            <Label text="Bienvenue sur notre application Chat App" textFill="WHITE">
+                <font>
+                    <Font name="System Bold" size="36.0" />
+                </font>
+            </Label>
+            <Pane VBox.vgrow="ALWAYS" />
+            <ImageView fitHeight="40.0" fitWidth="40.0">
+                <VBox.margin>
+                    <Insets top="10.0" />
+                </VBox.margin>
+                <Image url="@../../static/appIcon.png" />
+            </ImageView>
+            <Pane VBox.vgrow="ALWAYS" />
+            <Label text="Connectez-vous !">
+                <font>
+                    <Font size="36.0" />
+                </font>
+                <textFill>
+                    <LinearGradient endX="0.895734597156398" endY="0.6515151677709637" startX="0.22610589575531254" startY="1.0">
+                        <stops>
+                            <Stop>
+                                <color>
+                                    <Color red="1.0" green="1.0" blue="1.0" />
+                                </color>
+                            </Stop>
+                            <Stop offset="0.004878048780487798">
+                                <color>
+                                    <Color red="1.0" green="1.0" blue="1.0" />
+                                </color>
+                            </Stop>
+                            <Stop offset="0.6864064602960969">
+                                <color>
+                                    <Color red="0.5098039507865906" green="0.8588235378265381" blue="0.9686274528503418" />
+                                </color>
+                            </Stop>
+                            <Stop offset="1.0">
+                                <color>
+                                    <Color red="0.7137255072593689" green="0.9411764740943909" blue="0.6117647290229797" />
+                                </color>
+                            </Stop>
+                        </stops>
+                    </LinearGradient>
+                </textFill>
+                <VBox.margin>
+                    <Insets top="10.0" />
+                </VBox.margin>
+            </Label>
+        </VBox>
+        <Pane />
+        <VBox alignment="TOP_CENTER" prefWidth="400.0" spacing="30.0">
+            <VBox maxWidth="400.0" spacing="4.0">
+                <Label text="Email" textFill="#9b9c9e">
+                    <font>
+                        <Font size="18.0"/>
+                    </font>
+                </Label>
+                <HBox alignment="CENTER_LEFT" style="-fx-background-color: #1A1D21; -fx-background-radius: 8;">
+                    <padding>
+                        <Insets left="8.0" right="8.0"/>
+                    </padding>
+                    <ImageView fitHeight="18.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
+                        <HBox.margin>
+                            <Insets left="8.0"/>
+                        </HBox.margin>
+                        <Image url="@../../static/mailIcon.png"/>
+                    </ImageView>
+                    <TextField fx:id="emailInput" promptText="test@gmail.com"
+                               style="-fx-text-fill: #FFFFFF; -fx-background-color: transparent;">
+                        <font>
+                            <Font size="18.0"/>
+                        </font>
+                    </TextField>
+                </HBox>
+            </VBox>
+            <VBox maxWidth="400.0" spacing="4.0">
+                <Label text="Mot de passe" textFill="#9b9c9e">
+                    <font>
+                        <Font size="18.0"/>
+                    </font>
+                </Label>
+                <HBox alignment="CENTER_LEFT" style="-fx-background-color: #1A1D21; -fx-background-radius: 8;">
+                    <padding>
+                        <Insets left="8.0" right="8.0"/>
+                    </padding>
+                    <ImageView fitHeight="18.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
+                        <HBox.margin>
+                            <Insets left="8.0"/>
+                        </HBox.margin>
+                        <Image url="@../../static/lockIcon.png"/>
+                    </ImageView>
+                    <PasswordField fx:id="passwordInput" promptText="password"
+                                   style="-fx-background-color: #1A1D21; -fx-text-fill: #FFFFFF; -fx-background-radius: 8;">
+                        <font>
+                            <Font size="18.0"/>
+                        </font>
+                    </PasswordField>
+                </HBox>
+            </VBox>
+            <Button mnemonicParsing="false" onAction="#login" style="-fx-background-radius: 8;" styleClass="connectButton" text="Se Connecter">
+                <font>
+                    <Font name="System Bold" size="20.0" />
+                </font>
+            <cursor>
+               <Cursor fx:constant="HAND" />
+            </cursor>
+            </Button>
+        </VBox>
+        <Label fx:id="errorLabel" style="-fx-text-fill: red;" />
+        <HBox alignment="CENTER" prefHeight="50.0" spacing="10.0">
+            <padding>
+                <Insets top="10.0" />
+            </padding>
+            <Label text="Je n'ai pas de compte ?" textFill="#686b6e">
+                <font>
+                    <Font size="16.0" />
+                </font>
+            </Label>
+            <Hyperlink onAction="#switchRegister" text="Créer un compte">
+                <textFill>
+                    <LinearGradient endX="0.8409090620098691" startY="0.4053030849406215">
+                        <stops>
+                            <Stop>
+                                <color>
+                                    <Color red="0.5098039507865906" green="0.8588235378265381" blue="0.9686274528503418" />
+                                </color>
+                            </Stop>
+                            <Stop offset="1.0">
+                                <color>
+                                    <Color red="0.7137255072593689" green="0.9411764740943909" blue="0.6117647290229797" />
+                                </color>
+                            </Stop>
+                        </stops>
+                    </LinearGradient>
+                </textFill>
+                <font>
+                    <Font size="16.0" />
+                </font>
+            </Hyperlink>
+        </HBox>
+        <Pane />
+    </VBox>
+</GridPane>
+</VBox>

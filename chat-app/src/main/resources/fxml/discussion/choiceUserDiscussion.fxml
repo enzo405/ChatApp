@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+
+<HBox fx:id="root" prefWidth="250.0" style="-fx-background-color: #4E5058; -fx-background-radius: 4;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+    <ImageView fx:id="profilePicture" fitHeight="20" fitWidth="20" preserveRatio="true">
+        <Image url="@../../static/avatar.png" />
+    </ImageView>
+    <Label fx:id="username" />
+   <Pane HBox.hgrow="ALWAYS" />
+    <CheckBox fx:id="checkBox" textFill="WHITE" />
+   <padding>
+      <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+   </padding>
+</HBox>

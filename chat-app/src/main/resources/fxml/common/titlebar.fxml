@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<HBox alignment="CENTER_LEFT" maxHeight="22" minHeight="22" prefHeight="22" spacing="1.0" style="-fx-background-color: #131619" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.sio.chat.app.controllers.TitlebarController">
+   <Label text="Chat App" textFill="#b9b9b9">
+      <font>
+         <Font size="14.0" />
+      </font>
+      <HBox.margin>
+         <Insets left="10.0" />
+      </HBox.margin>
+   </Label>
+   <Pane HBox.hgrow="ALWAYS" />
+   <Button fx:id="minimizeWindowButton" mnemonicParsing="false" onAction="#minimizeWindow" style="-fx-background-color: TRANSPARENT;">
+      <graphic>
+         <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+            <Image url="@../../static/controlWindowMinimize.png" />
+         </ImageView>
+      </graphic>
+   </Button>
+   <Button fx:id="closeWindowButton" mnemonicParsing="false" onAction="#closeWindow" style="-fx-background-color: TRANSPARENT;">
+      <graphic>
+         <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+            <Image url="@../../static/controlWindowClose.png" />
+         </ImageView>
+      </graphic>
+   </Button>
+   <padding>
+      <Insets bottom="5.0" top="5.0" />
+   </padding>
+</HBox>

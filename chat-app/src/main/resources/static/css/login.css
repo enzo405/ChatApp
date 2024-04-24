@@ -1,0 +1,7 @@
+.connectButton {
+    -fx-background-color: #B6F09C;
+}
+
+.connectButton:hover {
+    -fx-background-color: #90c278;
+}

@@ -1,0 +1,7 @@
+.messageBox {
+    -fx-background-color: transparent;
+}
+
+.messageBox:hover {
+    -fx-background-color: rgba(72, 73, 80, 0.7);
+}

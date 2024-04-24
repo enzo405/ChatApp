@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.sio.chat.app.controllers.SettingController">
+   <fx:include source="../common/titlebar.fxml" VBox.vgrow="ALWAYS" />
+   <GridPane VBox.vgrow="ALWAYS" style="-fx-background-color: #131619;" >
+      <stylesheets>
+         <URL value="@../../static/css/scrollpane.css" />
+      </stylesheets>
+      <columnConstraints>
+         <ColumnConstraints percentWidth="4.2" />
+         <ColumnConstraints percentWidth="0.3" />
+         <ColumnConstraints percentWidth="95.5" />
+      </columnConstraints>
+      <rowConstraints>
+         <RowConstraints minHeight="10.0" vgrow="ALWAYS" /> <!-- Allow this row to grow vertically -->
+      </rowConstraints>
+      <fx:include fx:id="sidebarTemplate" source="../common/sidebar.fxml" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="0" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
+      <VBox prefHeight="200.0" prefWidth="5.0" style="-fx-background-color: black;" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+      <GridPane GridPane.columnIndex="2">
+         <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints percentHeight="10.0" vgrow="SOMETIMES" />
+            <RowConstraints percentHeight="90.0" vgrow="SOMETIMES" />
+            <RowConstraints />
+         </rowConstraints>
+         <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: #131619;" GridPane.columnIndex="0" GridPane.rowIndex="0">
+            <Label text="Paramètres" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+               <HBox.margin>
+                  <Insets left="20.0" />
+               </HBox.margin>
+            </Label>
+         </HBox>
+         <BorderPane style="-fx-background-color: #181A20; -fx-border-radius: 8;" GridPane.columnIndex="0" GridPane.rowIndex="1">
+            <center>
+               <GridPane style="-fx-background-color: #131619; -fx-border-width: 1; -fx-background-radius: 8;">
+                  <columnConstraints>
+                     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="70.0" prefWidth="100.0" />
+                     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="30.0" prefWidth="100.0" />
+                  </columnConstraints>
+                  <rowConstraints>
+                     <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  </rowConstraints>
+                  <VBox spacing="25.0" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                     <HBox.margin>
+                        <Insets left="10.0" />
+                     </HBox.margin>
+                     <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="390.0" spacing="10.0">
+                        <VBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="246.0" spacing="2.0">
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                           <Label text="NOM D'UTILISATEUR" textFill="WHITE">
+                              <font>
+                                 <Font size="13.0" />
+                              </font>
+                           </Label>
+                           <Label fx:id="labelUsername" textFill="WHITE">
+                              <font>
+                                 <Font size="13.0" />
+                              </font>
+                           </Label>
+                        </VBox>
+                        <Button mnemonicParsing="false" onAction="#toggleEditUsername" style="-fx-background-color: #4e5058;" text="Modifier" textFill="WHITE">
+                           <font>
+                              <Font size="14.0" />
+                           </font></Button>
+                        <HBox fx:id="editUsernameContent" alignment="CENTER_LEFT" spacing="8.0" visible="false" managed="false">
+                           <TextField fx:id="textFieldUsername" promptText="Nom d'utilisateur">
+                              <font>
+                                 <Font size="13.0" />
+                              </font>
+                           </TextField>
+                           <Button mnemonicParsing="false" onAction="#saveUsername" style="-fx-background-color: #4e5058;" text="Enregistrer" textFill="WHITE">
+                              <font>
+                                 <Font size="14.0" />
+                              </font>
+                           </Button>
+                        </HBox>
+                        <Label fx:id="usernameMessage" />
+                     </HBox>
+                     <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="390.0" spacing="10.0">
+                        <VBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="246.0" spacing="2.0">
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                           <Label text="EMAIL" textFill="WHITE">
+                              <font>
+                                 <Font size="13.0" />
+                              </font>
+                           </Label>
+                           <Label fx:id="labelEmail" textFill="WHITE">
+                              <font>
+                                 <Font size="13.0" />
+                              </font>
+                           </Label>
+                        </VBox>
+                        <Button mnemonicParsing="false" onAction="#toggleEditEmail" style="-fx-background-color: #4e5058;" text="Modifier" textFill="WHITE">
+                           <font>
+                              <Font size="14.0" />
+                           </font></Button>
+                        <HBox fx:id="editEmailContent" alignment="CENTER_LEFT" spacing="8.0" visible="false" managed="false">
+                           <TextField fx:id="textFieldEmail" promptText="Email">
+                              <font>
+                                 <Font size="13.0" />
+                              </font>
+                           </TextField>
+                           <Button mnemonicParsing="false" onAction="#saveEmail" style="-fx-background-color: #4e5058;" text="Enregistrer" textFill="WHITE">
+                              <font>
+                                 <Font size="14.0" />
+                              </font>
+                           </Button>
+                        </HBox>
+                        <Label fx:id="emailMessage" />
+                     </HBox>
+                     <HBox prefHeight="50.0" prefWidth="390.0" spacing="10.0">
+                        <Button mnemonicParsing="false" onAction="#toggleEditPassword" style="-fx-background-color: #4e5058;" text="Modifier le mot de passe" textFill="WHITE">
+                           <font>
+                              <Font size="14.0" />
+                           </font></Button>
+                        <HBox fx:id="editPasswordContent" spacing="8.0" visible="false" managed="false">
+                           <VBox>
+                              <PasswordField fx:id="passwordFieldOldPassword" promptText="Ancien mot de passe">
+                                 <font>
+                                    <Font size="13.0" />
+                                 </font>
+                              </PasswordField>
+                           </VBox>
+                           <VBox spacing="8.0">
+                              <PasswordField fx:id="passwordFieldPassword" promptText="Mot de passe">
+                                 <font>
+                                    <Font size="13.0" />
+                                 </font>
+                              </PasswordField>
+                              <PasswordField fx:id="passwordFieldPasswordConfirm" promptText="Confirmation">
+                                 <font>
+                                    <Font size="13.0" />
+                                 </font>
+                              </PasswordField>
+                           </VBox>
+                           <Button mnemonicParsing="false" onAction="#savePassword" style="-fx-background-color: #4e5058;" text="Enregistrer" textFill="WHITE">
+                              <font>
+                                 <Font size="14.0" />
+                              </font>
+                           </Button>
+                        </HBox>
+                        <Label fx:id="passwordMessage" />
+                     </HBox>
+                     <Pane prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS" />
+                     <Button mnemonicParsing="false" onAction="#logout" style="-fx-background-color: #4e5058;" text="Déconnecter" textFill="WHITE" VBox.vgrow="ALWAYS">
+                        <font>
+                           <Font size="14.0" />
+                        </font>
+                        <VBox.margin>
+                           <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                        </VBox.margin>
+                     </Button>
+                  </VBox>
+                  <VBox alignment="TOP_CENTER" spacing="10.0" GridPane.columnIndex="1" GridPane.rowIndex="0">
+                     <ImageView fx:id="avatarField" fitHeight="148.0" fitWidth="173.0" pickOnBounds="true" preserveRatio="true">
+                        <Image url="@../../static/avatar.png" />
+                     </ImageView>
+                     <Button mnemonicParsing="false" onAction="#buttonChoseAvatar" style="-fx-background-color: #4e5058;" text="Modifier l'avatar" textFill="WHITE">
+                        <font>
+                           <Font size="14.0" />
+                        </font></Button>
+                     <Label fx:id="errorMessageAvatar" textFill="RED" visible="false">
+                        <font>
+                           <Font size="14.0" />
+                        </font>
+                     </Label>
+                  </VBox>
+                  <padding>
+                     <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                  </padding>
+               </GridPane>
+            </center>
+            <top>
+               <Pane minHeight="20.0" BorderPane.alignment="TOP_LEFT" />
+            </top>
+            <left>
+               <Pane minWidth="20.0" BorderPane.alignment="CENTER" />
+            </left>
+            <right>
+               <Pane minWidth="20.0" BorderPane.alignment="CENTER" />
+            </right>
+            <bottom>
+               <Pane minHeight="20.0" BorderPane.alignment="CENTER" />
+            </bottom>
+         </BorderPane>
+      </GridPane>
+   </GridPane>
+</VBox>

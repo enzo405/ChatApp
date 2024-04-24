@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<Button fx:id="root" style="-fx-background-color: transparent; -fx-padding: 0;" VBox.vgrow="ALWAYS" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+    <graphic>
+        <HBox fx:id="discussionContainer" alignment="CENTER_LEFT" spacing="6.0">
+            <padding>
+                <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+            </padding>
+            <effect>
+                <DropShadow blurType="ONE_PASS_BOX" height="1.0" offsetY="1.0" radius="0.0" width="0.0" />
+            </effect>
+            <ImageView fx:id="imageView" fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                <Image url="@../../static/avatar.png" />
+            </ImageView>
+            <VBox fx:id="contentContainer">
+                <Label fx:id="nameLabel" text="Erwan Brion" textFill="WHITE">
+                    <font>
+                        <Font size="14.0" />
+                    </font>
+                </Label>
+                <Label fx:id="statusLabel" />
+            </VBox>
+            <Pane HBox.hgrow="ALWAYS" />
+            <Label fx:id="notifLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="20.0" prefWidth="20.0" style="-fx-background-color: #ff001e; -fx-background-radius: 50;" text="0" visible="false">
+                <font>
+                    <Font name="System Bold" size="13.0" />
+                </font>
+                <HBox.margin>
+                    <Insets left="4.0" right="4.0" />
+                </HBox.margin>
+            </Label>
+        </HBox>
+    </graphic>
+</Button>
